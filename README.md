@@ -1,2 +1,3 @@
-# vue3.0-music
-Vue-cli3.0重构QQ音乐APP
+# vue-music
+
+## 重构了之前vue2.0的版本。
