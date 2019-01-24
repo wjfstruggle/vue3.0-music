@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <v-header></v-header>
+    <tab></tab>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
-<script>
+<script type="text/javascript">
+import Tab from '@/components/tab/tab';
+import VHeader from '@/components/header/header';
 export default {
+  components: {
+    Tab,
+    VHeader
+  }
 }
 </script>
 <style lang="scss">
-
 </style>
