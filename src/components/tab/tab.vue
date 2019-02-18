@@ -5,7 +5,7 @@
         <router-link to="/">推荐音乐</router-link>
       </li>
       <li>
-        <router-link to="/hotSong">热歌榜</router-link>
+        <router-link to="/toplist">热歌榜</router-link>
       </li>
       <li>
         <router-link to="/search">搜索</router-link>
@@ -22,6 +22,7 @@
     left: 0;
     z-index: 100;
     width: 100%;
+    background-color: #fff;
   }
   .nav { 
     display: flex;

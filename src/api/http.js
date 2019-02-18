@@ -10,11 +10,11 @@ import QS from 'qs';
 
 // 环境的切换
 if (process.env.NODE_ENV == 'development') {
-  axios.defaults.baseURL = 'https://netease2.bluej.cn/';
+  axios.defaults.baseURL = 'http://59.110.231.183:3000';
 } else if (process.env.NODE_ENV == 'debug') {
-  axios.defaults.baseURL = 'https://netease2.bluej.cn/';
+  axios.defaults.baseURL = 'http://59.110.231.183:3000';
 } else if (process.env.NODE_ENV == 'production') {
-  axios.defaults.baseURL = 'https://netease2.bluej.cn/';
+  axios.defaults.baseURL = 'http://59.110.231.183:3000';
 }
 
 // // 请求超时时间

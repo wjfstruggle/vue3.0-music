@@ -61,3 +61,5 @@ export const apiPlaylistSubscribe = params => get('/playlist/subscribe', params)
 export const apiPlaylistTracks = params => get('/playlist/tracks', params) //对歌单添加或删除歌曲
 
 export const apiLyric = params => get('/lyric', params) //获取歌词
+
+export const apiBanner = params => get('/banner', params) //获取轮播图数据
