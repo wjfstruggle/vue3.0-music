@@ -12,7 +12,12 @@
       <div class="recommend-wrap">
         <ul>
           <li class="recommend-item" v-for="recomSong in recommendSong" :key="recomSong.id">
-            <div class="picUrl"><img v-lazy="recomSong.picUrl" alt=""><span class="playCount">{{(recomSong.playCount/10000).toFixed(1)}}万</span></div>
+            <div class="picUrl"><img v-lazy="recomSong.picUrl" alt="">
+            <div class="playCount">
+              <i class="iconfont icon-listener-"></i>
+              <span class="count">{{(recomSong.playCount/10000).toFixed(1)}}万</span>
+            </div>
+            </div>
             <h3 class="recommend-text">{{recomSong.name}}</h3>
           </li>
         </ul>
@@ -115,10 +120,15 @@ export default {
               width: 100%;
             }
             .playCount {
+              display: flex;
+              align-items: center;
               position: absolute;
               right: 5px;
               top: 5px;
               color: #fff;
+              .count {
+                margin-left: 5px;
+              }
             }
           }
           .recommend-text {
