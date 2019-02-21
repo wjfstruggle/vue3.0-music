@@ -23,21 +23,29 @@
         </ul>
       </div>
     </section>
+    <!-- 最新音乐 -->
+    <section id="recent-song">
+      <h1 class="new-song">最新音乐</h1>
+      <music-list :newsongs="newSongs"></music-list>
+    </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import {apiPersonalized, apiBanner} from '@/api/api.js'
+import {apiPersonalized, apiBanner, apiPersonalizedNewsong} from '@/api/api.js'
+import MusicList from '@/components/musicList/musicList';
 export default {
   created() {
     this.recommend()
     this.Banner()
+    this.newSong()
   },
   data() {
     return {
       recommendSong: [], // 推荐歌单
-      banners: [] // 轮播图
+      banners: [], // 轮播图
+      newSongs: [] // 最新音乐
     }
   },
   methods: {
@@ -51,8 +59,16 @@ export default {
       apiBanner({}).then( res => {
         this.banners = res.banners
       })
+    },
+    newSong() {
+      apiPersonalizedNewsong({}).then(res => {
+        this.newSongs = res.result;
+      })
     }
   },
+  components: {
+    MusicList
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -77,27 +93,30 @@ export default {
     }
   }
 }
+@mixin h1Name {
+  position: relative;
+  display: inline-block;
+  padding-left: 9px;
+  margin-bottom: 14px;
+  font-size: $font-size-theme;
+  height: 20px;
+  line-height: 20px;
+  &::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -9px;
+    width: 2px;
+    height: 16px;
+    background-color: $color-theme;
+  }
+}
   // 推荐歌单
   #recommend-song {
     padding-top: 20px;
     .recommend-name {
-      position: relative;
-      display: inline-block;
-      padding-left: 9px;
-      margin-bottom: 14px;
-      font-size: $font-size-theme;
-      height: 20px;
-      line-height: 20px;
-      &::before {
-        content: " ";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        margin-top: -9px;
-        width: 2px;
-        height: 16px;
-        background-color: $color-theme;
-      }
+      @include h1Name;
     }
     .recommend-wrap {
       position: relative;
@@ -156,6 +175,11 @@ export default {
         }
       }
     }
+  }
+}
+#recent-song {
+  .new-song {
+    @include h1Name;
   }
 }
 </style>

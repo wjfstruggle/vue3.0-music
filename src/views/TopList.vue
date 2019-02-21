@@ -19,11 +19,8 @@ export default {
   methods: {
     recommend() {
       apiTopList({
-        idx: 1,
-        offset: 0,
-        limit: 3
+        idx: 1
       }).then(res => {
-        console.log(res);
         this.playlist = res.playlist
         this.tracks = res.playlist.tracks
       })
