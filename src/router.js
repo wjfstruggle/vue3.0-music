@@ -22,6 +22,11 @@ export default new Router({
       path: '/Search',
       name: 'search',
       component: () => import('./views/Search.vue')
+    },
+    {
+      path: '/PlaylistDetail/:id',
+      name: 'PlaylistDetail',
+      component: () => import('./components/PlaylistDetail/PlaylistDetail.vue')
     }
   ]
 })

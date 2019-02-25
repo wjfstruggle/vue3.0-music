@@ -28,7 +28,7 @@
 
 /*文字在三行内的省略号*/
 
-.textOverflow2 {
+.textOverflow3 {
     text-overflow: ellipsis;
     /*超出部分显示...*/
     overflow: hidden;
@@ -89,5 +89,16 @@
     right: -10px;
     bottom: -10px;
   }  
+}
+.playCount {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #fff;
+    .count {
+      margin-left: 5px;
+    }
 }
   

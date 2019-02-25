@@ -18,12 +18,17 @@ export default {
   },
   methods: {
     recommend() {
-      apiTopList({
-        idx: 1
+      for (let i = 1; i < 10; i++) {
+        apiTopList({
+        idx: i
       }).then(res => {
-        this.playlist = res.playlist
-        this.tracks = res.playlist.tracks
+        console.log(res);
+        
+        // this.playlist = res.playlist
+        // this.tracks = res.playlist.tracks
       })
+      }
+      
     }
   }
 }

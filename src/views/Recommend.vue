@@ -11,7 +11,7 @@
       <h1 class="recommend-name">推荐歌单</h1>
       <div class="recommend-wrap">
         <ul>
-          <li class="recommend-item" v-for="recomSong in recommendSong" :key="recomSong.id">
+          <li class="recommend-item" v-for="recomSong in recommendSong" :key="recomSong.id" @click="toRecommendDes(recomSong.id)">
             <div class="picUrl"><img v-lazy="recomSong.picUrl" alt="">
             <div class="playCount">
               <i class="iconfont icon-listener-"></i>
@@ -63,6 +63,14 @@ export default {
     newSong() {
       apiPersonalizedNewsong({}).then(res => {
         this.newSongs = res.result;
+      })
+    },
+    toRecommendDes(id) {
+      this.$router.push({
+        name: 'PlaylistDetail',
+        params: {
+          id: id,
+        }
       })
     }
   },
@@ -137,17 +145,6 @@ export default {
             height: 123px;
             img {
               width: 100%;
-            }
-            .playCount {
-              display: flex;
-              align-items: center;
-              position: absolute;
-              right: 5px;
-              top: 5px;
-              color: #fff;
-              .count {
-                margin-left: 5px;
-              }
             }
           }
           .recommend-text {
